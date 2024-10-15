@@ -2,6 +2,11 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@radix-ui/react-hover-card";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,27 +23,6 @@ const Navbar: React.FC = () => {
           <div className="text-black text-[20px] font-bold pl-3 pt-3">
             FinTrack
           </div>
-        </div>
-        <div className="md:hidden">
-          <button
-            onClick={toggleMenu}
-            className="text-black focus:outline-none"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
         </div>
       </div>
     </nav>
