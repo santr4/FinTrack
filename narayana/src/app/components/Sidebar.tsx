@@ -32,12 +32,12 @@ const Sidebar: React.FC = () => {
     <div
       className={`flex ${
         isOpen ? "w-96" : "w-60"
-      } transition-all duration-300 bg-white h-screen`}
+      } transition-all duration-300 bg-white h-screen border-r-2 border-gray-300`} // Moved border to the right
     >
       <div className="flex flex-col items-center">
         <Button
           onClick={toggleSidebar}
-          className="text-white mr-32 ml-5 mt-4 z-10 w-20 rounded-lg"
+          className="text-white mr-24 ml-5 mt-4 z-10 w-20 rounded-lg"
           variant={"default"}
         >
           {isOpen ? "Collapse" : "Expand"}
@@ -70,11 +70,6 @@ const Sidebar: React.FC = () => {
           )}
         </div>
       </div>
-      <div
-        className={`h-full left-0 top-0 border-l-2 border-grey-500 ${
-          isOpen ? "w-96" : "w-60"
-        }`}
-      ></div>
     </div>
   );
 };
