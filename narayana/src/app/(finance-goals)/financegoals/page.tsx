@@ -1,19 +1,17 @@
-"use client";
-
 import Layout from "@/app/components/Layout";
 import Sidebar from "@/app/components/Sidebar";
 
-const DocumentsPage = () => {
+const FinanceGoalsPage = () => {
   return (
     <Layout>
       <div className="flex">
         <div>
           <Sidebar />
         </div>
-        <div>hello Documents</div>
+        <div>Finance Goals</div>
       </div>
     </Layout>
   );
 };
 
-export default DocumentsPage;
+export default FinanceGoalsPage;

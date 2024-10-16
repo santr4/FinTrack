@@ -32,6 +32,7 @@ export default function Home() {
               className="flex items-center gap-1"
               type="button"
               onClick={handleLoginClick}
+              variant={"default"}
             >
               Login
               <span className="relative -top-[1px]">&rarr;</span>
