@@ -10,6 +10,7 @@ const Sidebar: React.FC = () => {
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
+    console.log("button clicked");
   };
 
   const router = useRouter();
