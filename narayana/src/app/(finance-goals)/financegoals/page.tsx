@@ -14,8 +14,8 @@ const FinanceGoalsPage = () => {
           <div className="flex flex-col ml-16 pb-72 justify-center items-center">
             <div className="flex pb-6 font-bold">Finance Goals</div>
             <div>
-              Financial Goals Our Financial Goals section allows you to set,
-              track, and achieve your financial aspirations effortlessly.
+              Our Financial Goals allows you to set, track, and achieve your
+              financial aspirations effortlessly.
             </div>
             <div className="flex">
               <TodoApp />

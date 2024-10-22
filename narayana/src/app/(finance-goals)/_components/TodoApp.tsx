@@ -54,7 +54,7 @@ const TodoApp: React.FC = () => {
 
   const removeTodo = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:8000/api/delete_financegoal/${id}`);
+      await axios.delete(`http://localhost:8000/api/delete_financegoal/${id}/`);
       setTodos(todos.filter((todo) => todo.id !== id));
     } catch (error) {
       console.error("Error removing todo:", error);
@@ -68,8 +68,9 @@ const TodoApp: React.FC = () => {
     const updatedTodo = { ...todo, completed: !todo.completed };
 
     try {
+      // Call the new API to toggle the completed status
       await axios.put(
-        `http://localhost:8000/api/update_financegoal/${id}`,
+        `http://localhost:8000/api/toggle_complete/${id}/`,
         updatedTodo
       );
       setTodos(todos.map((todo) => (todo.id === id ? updatedTodo : todo)));
@@ -87,7 +88,7 @@ const TodoApp: React.FC = () => {
         placeholder=" Set Your Goal"
       />
       <Button onClick={addTodo} className="ml-2">
-        Add Todo
+        Add Goal
       </Button>
       <ul>
         {todos.map((todo) => {

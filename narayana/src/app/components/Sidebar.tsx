@@ -48,17 +48,17 @@ const Sidebar: React.FC = () => {
             <>
               <Button
                 type="button"
-                onClick={handleGoToSetGoals}
-                className="m-2 w-20 rounded-lg"
-              >
-                SetGoals
-              </Button>
-              <Button
-                type="button"
                 onClick={handleGoToDashboard}
                 className="m-2 w-20 rounded-lg"
               >
                 D-Board
+              </Button>
+              <Button
+                type="button"
+                onClick={handleGoToSetGoals}
+                className="m-2 w-20 rounded-lg"
+              >
+                SetGoals
               </Button>
               <Button
                 type="button"

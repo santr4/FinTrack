@@ -80,14 +80,35 @@ def get_financegoal(request):
 
 @api_view(["DELETE"])
 @csrf_exempt
-def delete_financegoal(request):
+def delete_financegoal(request, id):
+    print(f"Received ID: {id}")
     try:
-        req = json.loads(request.body)
-        delete_id: str = req["id"]
-        financegoal = Financegoal.objects.all()
+        # Try to fetch the finance goal by ID and delete it
+        financegoal = Financegoal.objects.get(id=id)
         financegoal.delete()
         return JsonResponse(
-            {"status": 204, "data": "task deleted of id: {}".format(delete_id)}
+            {"status": 204, "data": "task deleted of id: {}".format(id)}
         )
+    except Financegoal.DoesNotExist:
+        return JsonResponse({"status": 404, "data": "financegoal not found"})
     except ValueError:
-        return JsonResponse({"status": 500, "data": "financegoal deleted"})
+        return JsonResponse({"status": 500, "data": "Invalid request"})
+
+
+@api_view(["PUT"])
+@csrf_exempt
+def toggle_complete(request, id):
+    try:
+        financegoal = Financegoal.objects.get(id=id)
+        data = JSONParser().parse(request)
+
+        # Toggle the completed status
+        financegoal.completed = data.get("completed", financegoal.completed)
+        financegoal.save()
+
+        serializer = FinancegoalSerializer(financegoal)
+        return JsonResponse({"status": 200, "data": serializer.data})
+    except Financegoal.DoesNotExist:
+        return JsonResponse({"status": 404, "data": "financegoal not found"})
+    except Exception as e:
+        return JsonResponse({"status": 500, "data": str(e)})
