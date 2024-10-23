@@ -25,7 +25,6 @@ import traceback
 #             return JsonResponse(serializer.data, status=201)
 #         return JsonResponse(serializer.errors, status=400)
 
-
 # @csrf_exempt
 # def financegoal_detail(request, pk):
 #     try:
