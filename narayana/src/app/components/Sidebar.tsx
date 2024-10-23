@@ -32,7 +32,7 @@ const Sidebar: React.FC = () => {
   return (
     <div
       className={`flex ${
-        isOpen ? "w-96" : "w-60"
+        isOpen ? "w-72" : "w-60"
       } transition-all duration-300 bg-white h-screen border-r-2 border-gray-300`} // Moved border to the right
     >
       <div className="flex flex-col items-center">
